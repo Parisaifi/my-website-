@@ -1,55 +1,33 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Meine Webseite</title>
-    <link rel="stylesheet" href="stylesheet.css">
+    <meta charset="UTF-8">
+    <title>Danke</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #e0ffe0;
+            color: #1a4d1a;
+            text-align: center;
+            padding-top: 100px;
+        }
+        h1 {
+            font-size: 2rem;
+        }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            background: #4a90e2;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
-<header>
-    <h1>*Vanillaplan*</h1>
-</header>
-<nav>
-    <a href="#bio">🧑 Bio</a>
-    <a href="#contact">📨 Kontakt</a>
-    <a href="datei.pdf" download>⬇️ Herunterladen</a>
-</nav>
-
-<!--moarefi-->
-<section id="bio">
-    <h2>🧾 Bio Data</h2>
-    <table>
-        <tr><th>Name</th><td>Pari Saifi</td></tr>
-        <tr><th>Geburtsdatum</th><td>21.03.1988</td></tr>
-        <tr><th>Wohnort</th><td>Binningen,Schweiz</td></tr>
-        <tr><th>Beruf</th><td>Softwareentwicklerin</td></tr>
-    </table>
-</section>
-<section id="contact">
-        <h2>📬 Kontaktformular</h2>
-    <div class="contact-card">
-      <form action="https://formspree.io/f/xkgbzvdn" method="POST">
-        <label for="name">👤 Dein Name</label>
-        <input type="text" id="name" name="name" placeholder="Max Mustermann" required />
-
-        <label for="email">📧 Deine E-Mail</label>
-        <input type="email" id="email" name="email" placeholder="max@example.com" required />
-
-        <label for="message">💬 Deine Nachricht</label>
-        <textarea id="message" name="message" rows="5" placeholder="Schreibe hier deine Nachricht..." required></textarea>
-
-        <input type="hidden" name="_redirect" value="danke.html" />
-
-        <button type="submit">📨 Nachricht senden</button>
-      </form>
-    </div>
-</section>
-
-<footer>
-    © 2025 Pari saifi
-</footer>
+<h1>✅ Vielen Dank!</h1>
+<p>Deine Nachricht wurde erfolgreich gesendet.</p>
+<a href="index.html">🔙 Zurück zur Startseite</a>
 </body>
 </html>
-
-
