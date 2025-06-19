@@ -1,33 +1,90 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <title>Danke</title>
-    <style>
-        body {
-            font-family: sans-serif;
-            background-color: #e0ffe0;
-            color: #1a4d1a;
-            text-align: center;
-            padding-top: 100px;
-        }
-        h1 {
-            font-size: 2rem;
-        }
-        a {
-            display: inline-block;
-            margin-top: 20px;
-            text-decoration: none;
-            background: #4a90e2;
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 5px;
-        }
-    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Vanillaplan</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-<h1>✅ Vielen Dank!</h1>
-<p>Deine Nachricht wurde erfolgreich gesendet.</p>
-<a href="index.html">🔙 Zurück zur Startseite</a>
+<body class="bg-pink-50 text-gray-800 font-sans">
+
+<header class="bg-pink-200 py-6 text-center text-3xl font-bold text-pink-900">
+    🍦 Vanillaplan
+</header>
+
+
+<nav class="bg-pink-100 p-4 flex justify-center gap-6 flex-wrap">
+    <a href="#bio" class="text-pink-700 font-semibold hover:underline">🧑 Bio</a>
+    <a href="#contact" class="text-pink-700 font-semibold hover:underline">📨 Kontakt</a>
+    <a href="datei.pdf" download class="text-pink-700 font-semibold hover:underline">⬇️ Herunterladen</a>
+</nav>
+
+<section id="bio" class="p-6 max-w-3xl mx-auto">
+    <h2 class="text-xl font-bold mb-4">🧾 Bio Data</h2>
+    <table class="w-full bg-white shadow-md rounded-lg overflow-hidden">
+        <tr class="border-b"><th class="p-3 text-left w-1/3">Name</th><td class="p-3">Pari Saifi</td></tr>
+        <tr class="border-b"><th class="p-3 text-left">Geburtsdatum</th><td class="p-3">21.03.1988</td></tr>
+        <tr class="border-b"><th class="p-3 text-left">Wohnort</th><td class="p-3">Binningen, Schweiz</td></tr>
+        <tr><th class="p-3 text-left">Beruf</th><td class="p-3">Softwareentwicklerin</td></tr>
+    </table>
+</section>
+
+<section id="contact" class="p-6 max-w-3xl mx-auto">
+    <h2 class="text-xl font-bold mb-4">📬 Kontaktformular</h2>
+    <form action="https://formspree.io/f/xkgbzvdn" method="POST" class="space-y-4 bg-white p-6 rounded-lg shadow-md">
+        <div>
+            <label for="name" class="block font-medium mb-1">👤 Dein Name</label>
+            <input type="text" id="name" name="name" required class="w-full p-2 border rounded">
+        </div>
+        <div>
+            <label for="email" class="block font-medium mb-1">📧 Deine E-Mail</label>
+            <input type="email" id="email" name="email" required class="w-full p-2 border rounded">
+        </div>
+        <div>
+            <label for="message" class="block font-medium mb-1">💬 Deine Nachricht</label>
+            <textarea id="message" name="message" rows="4" required class="w-full p-2 border rounded"></textarea>
+        </div>
+        <input type="hidden" name="_redirect" value="danke.html" />
+        <button type="submit" class="bg-pink-600 text-white px-4 py-2 rounded hover:bg-pink-700">
+            📨 Nachricht senden
+        </button>
+    </form>
+</section>
+
+<section id="extras" class="p-6 max-w-3xl mx-auto">
+    <div id="app">
+        <h2 class="text-xl font-bold mb-4">🎯 Interaktive Buttons</h2>
+        <div class="space-x-2 mb-4">
+            <button v-for="(btn, index) in buttons"
+                    :key="index"
+                    :class="['px-4 py-2 rounded', activeIndex === index ? 'bg-pink-600 text-white' : 'bg-pink-100 text-pink-700']"
+                    @click="activeIndex = index">
+                {{ btn.text }}
+            </button>
+        </div>
+        <div v-if="activeIndex !== null" class="bg-pink-100 p-4 rounded shadow">
+            <p>{{ buttons[activeIndex].message }}</p>
+        </div>
+    </div>
+</section>
+
+<footer class="text-center p-4 bg-pink-100 text-pink-800 mt-6">© 2025 Pari Saifi</footer>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            activeIndex: null,
+            buttons: [
+                { text: '💡 Über mich', message: 'Ich liebe Programmieren und moderne Webtechnologien.' },
+                { text: '📦 Mein Projekt', message: 'Diese Seite zeigt meine Kenntnisse in HTML, CSS, JS und Vue.js.' },
+                { text: '🚀 Kontakt', message: 'Nutze das Formular, um mit mir in Kontakt zu treten.' }
+            ]
+        }
+    });
+</script>
+
 </body>
 </html>
+
